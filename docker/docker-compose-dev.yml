@@ -1,0 +1,53 @@
+version: '2'
+services:
+    registry:
+        extends:
+            file: registry.yml
+            service: registry
+    zookeeper:
+        extends:
+            file: kafka.yml
+            service: zookeeper
+    kafka:
+        extends:
+            file: kafka.yml
+            service: kafka
+    postgresql:
+        image: postgres:9.6.5
+        environment:
+            - POSTGRES_USER=mdhr
+            - POSTGRES_PASSWORD=mdhr
+    elasticsearch:
+        extends:
+            file: console.yml
+            service: elasticsearch
+    logstash:
+        extends:
+            file: console.yml
+            service: logstash
+        depends_on:
+            - elasticsearch
+    console:
+        extends:
+            file: console.yml
+            service: console
+        depends_on:
+            - elasticsearch
+    import-dashboards:
+        extends:
+            file: console.yml
+            service: import-dashboards
+        depends_on:
+            - elasticsearch
+    curator:
+        extends:
+            file: console.yml
+            service: curator
+        depends_on:
+            - elasticsearch
+    zipkin:
+        extends:
+            file: console.yml
+            service: zipkin
+        depends_on:
+            - elasticsearch
