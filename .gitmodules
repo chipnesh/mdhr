@@ -1,0 +1,3 @@
+[submodule "mdhr-web"]
+	path = mdhr-web
+	url = https://github.com/chipnesh/mdhr-web.git
