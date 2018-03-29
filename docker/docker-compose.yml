@@ -57,35 +57,44 @@ services:
         extends:
             file: registry.yml
             service: registry
+        hostname: registry
     zookeeper:
         extends:
             file: kafka.yml
             service: zookeeper
+        hostname: zookeeper
     kafka:
         extends:
             file: kafka.yml
             service: kafka
+        hostname: kafka
     postgresql:
         image: postgres:9.6.5
         environment:
             - POSTGRES_USER=mdhr
             - POSTGRES_PASSWORD=mdhr
+        ports:
+            - 5432:5432
+        hostname: postgresql
     elasticsearch:
         extends:
             file: console.yml
             service: elasticsearch
+        hostname: elasticsearch
     logstash:
         extends:
             file: console.yml
             service: logstash
         depends_on:
             - elasticsearch
+        hostname: logstash
     console:
         extends:
             file: console.yml
             service: console
         depends_on:
             - elasticsearch
+        hostname: console
     import-dashboards:
         extends:
             file: console.yml
@@ -98,9 +107,11 @@ services:
             service: curator
         depends_on:
             - elasticsearch
+        hostname: curator
     zipkin:
         extends:
             file: console.yml
             service: zipkin
         depends_on:
             - elasticsearch
+        hostname: zipkin

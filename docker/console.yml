@@ -1,7 +1,7 @@
 version: '2'
 services:
     elasticsearch:
-        image: elasticsearch:2.4.6
+        image: jhipster/jhipster-elasticsearch:v3.0.1
         # Uncomment this as well as the volume section down below
         # to have elasticsearch data persisted to a volume
         # you will need to create a named volume with `docker volume create log-data`
@@ -12,6 +12,8 @@ services:
         ports:
             - 9200:9200
             - 9300:9300
+        environment:
+            - ES_JAVA_OPTS=-Xmx1024m -Xms256m
     logstash:
         image: jhipster/jhipster-logstash:v3.0.1
         environment:
