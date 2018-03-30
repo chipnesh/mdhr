@@ -476,6 +476,12 @@
                             </delimiters>
                             <resources>
                                 <resource>
+                                    <directory>./../mdhr-web/build/www</directory>
+                                    <includes>
+                                        <include>*.*</include>
+                                    </includes>
+                                </resource>
+                                <resource>
                                     <directory>src/main/resources/</directory>
                                     <filtering>true</filtering>
                                     <includes>
@@ -726,7 +732,7 @@
                         <configuration>
                             <filesets>
                                 <fileset>
-                                    <directory>target/www/</directory>
+                                    <directory>./../mdhr-web/build/www</directory>
                                 </fileset>
                             </filesets>
                         </configuration>
@@ -737,6 +743,7 @@
                         <version>${maven-war-plugin.version}</version>
                         <configuration>
                             <failOnMissingWebXml>false</failOnMissingWebXml>
+                            <warSourceDirectory>./../mdhr-web/build/www</warSourceDirectory>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -813,7 +820,7 @@
                         <version>${maven-war-plugin.version}</version>
                         <configuration>
                             <failOnMissingWebXml>false</failOnMissingWebXml>
-                            <warSourceDirectory>src/main/webapp/</warSourceDirectory>
+                            <warSourceDirectory>./../mdhr-web/build/www</warSourceDirectory>
                         </configuration>
                     </plugin>
                     <plugin>

@@ -11,7 +11,6 @@ services:
             - ~/volumes/jhipster/gateway/elasticsearch/:/usr/share/elasticsearch/data/
         ports:
             - 9200:9200
-            - 9300:9300
         environment:
             - ES_JAVA_OPTS=-Xmx1024m -Xms256m
     logstash:
@@ -44,6 +43,7 @@ services:
         image: jhipster/jhipster-curator:v3.0.1
         environment:
             - ES_HOST=elasticsearch
+            - ES_PORT=9200
             - UNIT_COUNT=7
             - UNIT=days
     zipkin:
