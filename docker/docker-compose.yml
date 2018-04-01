@@ -79,6 +79,8 @@ services:
             file: kafka.yml
             service: kafka
         hostname: kafka
+        depends_on:
+            - zookeeper
     postgresql:
         image: postgres:9.6.5
         environment:
