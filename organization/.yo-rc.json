@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "ru.md.mdhr",
+      "nativeLanguage": "ru"
+    },
+    "jhipsterVersion": "4.14.1",
+    "baseName": "organization",
+    "packageName": "ru.md.mdhr",
+    "packageFolder": "ru/md/mdhr",
+    "serverPort": "8081",
+    "authenticationType": "uaa",
+    "uaaBaseName": "auth",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSocialSignIn": false,
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "a42d95ccaa8bfc87ee9ec7c3f06fc09ae516fb11",
+    "enableTranslation": true,
+    "applicationType": "microservice",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "nativeLanguage": "ru",
+    "languages": [
+      "ru"
+    ],
+    "clientPackageManager": "yarn",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

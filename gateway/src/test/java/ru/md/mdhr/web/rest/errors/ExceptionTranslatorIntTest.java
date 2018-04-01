@@ -1,6 +1,7 @@
 package ru.md.mdhr.web.rest.errors;
 
 import ru.md.mdhr.GatewayApp;
+import ru.md.mdhr.config.SecurityBeanOverrideConfiguration;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see ExceptionTranslator
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = GatewayApp.class)
+@SpringBootTest(classes = {GatewayApp.class, SecurityBeanOverrideConfiguration.class})
 public class ExceptionTranslatorIntTest {
 
     @Autowired

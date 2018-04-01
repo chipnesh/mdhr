@@ -2,6 +2,7 @@ package ru.md.mdhr.web.rest;
 
 import io.github.jhipster.config.JHipsterProperties;
 import ru.md.mdhr.AuthApp;
+import ru.md.mdhr.config.SecurityBeanOverrideConfiguration;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

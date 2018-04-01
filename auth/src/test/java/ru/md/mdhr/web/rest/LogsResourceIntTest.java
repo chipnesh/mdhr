@@ -1,6 +1,7 @@
 package ru.md.mdhr.web.rest;
 
 import ru.md.mdhr.AuthApp;
+import ru.md.mdhr.config.SecurityBeanOverrideConfiguration;
 import ru.md.mdhr.web.rest.vm.LoggerVM;
 import ch.qos.logback.classic.AsyncAppender;
 import ch.qos.logback.classic.LoggerContext;

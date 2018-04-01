@@ -1,38 +1,56 @@
 version: '2'
 services:
+    search-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: search-elasticsearch
+        hostname: search-elasticsearch
     registry:
         extends:
             file: registry.yml
             service: registry
+        hostname: registry
+        environment:
+            - SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCH_LOCATIONS=file:./central-server-config/localhost-config/
     zookeeper:
         extends:
             file: kafka.yml
             service: zookeeper
+        hostname: zookeeper
     kafka:
         extends:
             file: kafka.yml
             service: kafka
+        hostname: kafka
+        depends_on:
+            - zookeeper
     postgresql:
         image: postgres:9.6.5
         environment:
             - POSTGRES_USER=mdhr
             - POSTGRES_PASSWORD=mdhr
+        hostname: postgresql
+        ports:
+            - 5432:5432
     elasticsearch:
         extends:
             file: console.yml
             service: elasticsearch
+        hostname: elasticsearch
     logstash:
         extends:
             file: console.yml
             service: logstash
         depends_on:
             - elasticsearch
+        hostname: logstash
     console:
         extends:
             file: console.yml
             service: console
         depends_on:
             - elasticsearch
+        hostname: console
     import-dashboards:
         extends:
             file: console.yml
@@ -45,9 +63,16 @@ services:
             service: curator
         depends_on:
             - elasticsearch
+        hostname: curator
     zipkin:
         extends:
             file: console.yml
             service: zipkin
         depends_on:
             - elasticsearch
+        hostname: zipkin
+    hazelcast-console:
+        extends:
+            file: hazelcast-management-center.yml
+            service: hazelcast-management-center
+        hostname: hazelcast-console

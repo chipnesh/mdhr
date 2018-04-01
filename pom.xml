@@ -18,7 +18,7 @@
         <module>auth</module>
         <module>audit</module>
         <module>gateway</module>
-        <module>module</module>
+        <module>organization</module>
     </modules>
 
     <build>

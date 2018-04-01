@@ -37,22 +37,6 @@ eureka:
 ribbon:
     eureka:
         enabled: true
-# See https://github.com/Netflix/Hystrix/wiki/Configuration
-#hystrix:
-#    command:
-#        default:
-#            execution:
-#                isolation:
-#                    thread:
-#                        timeoutInMilliseconds: 10000
-# See https://github.com/spring-cloud/spring-cloud-netflix/issues/1330
-feign:
-    hystrix:
-        enabled: true
-
-hystrix:
-    share-security-context: true
-
 management:
     security:
         roles: ADMIN
@@ -87,6 +71,9 @@ spring:
 security:
     basic:
         enabled: false
+    oauth2:
+        resource:
+            filter-order: 3
 
 server:
     session:

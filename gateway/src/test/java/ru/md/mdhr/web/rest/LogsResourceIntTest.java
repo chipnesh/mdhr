@@ -1,6 +1,7 @@
 package ru.md.mdhr.web.rest;
 
 import ru.md.mdhr.GatewayApp;
+import ru.md.mdhr.config.SecurityBeanOverrideConfiguration;
 import ru.md.mdhr.web.rest.vm.LoggerVM;
 import ch.qos.logback.classic.AsyncAppender;
 import ch.qos.logback.classic.LoggerContext;
@@ -27,7 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see LogsResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = GatewayApp.class)
+@SpringBootTest(classes = {GatewayApp.class, SecurityBeanOverrideConfiguration.class})
 public class LogsResourceIntTest {
 
     private MockMvc restLogsMockMvc;

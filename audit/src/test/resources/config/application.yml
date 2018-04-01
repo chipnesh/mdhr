@@ -108,9 +108,14 @@ jhipster:
     security:
         authentication:
             jwt:
-                secret: 0ec99e5fd4fca8d3fcd4c03823008507e4d3eb45
+                secret: e222e35c2caec8ff271283f29756099c5670a4f3
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
+        client-authorization:
+            access-token-uri: http://auth/oauth/token
+            token-service-id: auth
+            client-id: internal
+            client-secret: internal
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         logs: # Reports Dropwizard metrics in the logs

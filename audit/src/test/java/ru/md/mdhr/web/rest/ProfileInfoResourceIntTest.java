@@ -2,6 +2,7 @@ package ru.md.mdhr.web.rest;
 
 import io.github.jhipster.config.JHipsterProperties;
 import ru.md.mdhr.AuditApp;
+import ru.md.mdhr.config.SecurityBeanOverrideConfiguration;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see ProfileInfoResource
  **/
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = AuditApp.class)
+@SpringBootTest(classes = {AuditApp.class, SecurityBeanOverrideConfiguration.class})
 public class ProfileInfoResourceIntTest {
 
     @Mock

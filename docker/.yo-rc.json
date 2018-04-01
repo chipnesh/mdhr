@@ -3,8 +3,8 @@
     "appsFolders": [
       "audit",
       "auth",
-      "gateway",
-      "module"
+      "department",
+      "gateway"
     ],
     "directoryPath": "../",
     "gatewayType": "zuul",
