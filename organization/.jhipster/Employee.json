@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "firstname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "middlename",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "birthdate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "workingSince",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180402055945",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "employee",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination",
+    "microserviceName": "organization",
+    "searchEngine": "elasticsearch"
+}
