@@ -139,8 +139,8 @@ jhipster:
         # max-age: 1800
     security:
         client-authorization:
-            access-token-uri: http://auth/oauth/token
-            token-service-id: auth
+            access-token-uri: http://account/oauth/token
+            token-service-id: account
             client-id: internal
             client-secret: internal
     mail: # specific JHipster mail property, for standard properties see MailProperties
@@ -171,7 +171,7 @@ jhipster:
 
 oauth2:
     signature-verification:
-        public-key-endpoint-uri: http://auth/oauth/token_key
+        public-key-endpoint-uri: http://account/oauth/token_key
         #ttl for public keys to verify JWT tokens (in ms)
         ttl: 3600000
         #max. rate at which public keys will be fetched (in ms)

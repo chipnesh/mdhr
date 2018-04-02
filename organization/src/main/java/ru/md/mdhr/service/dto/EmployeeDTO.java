@@ -22,9 +22,9 @@ public class EmployeeDTO implements Serializable {
 
     private String email;
 
-    private LocalDate birthdate;
-
     private LocalDate workingSince;
+
+    private LocalDate birthDate;
 
     public Long getId() {
         return id;
@@ -74,20 +74,20 @@ public class EmployeeDTO implements Serializable {
         this.email = email;
     }
 
-    public LocalDate getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
-    }
-
     public LocalDate getWorkingSince() {
         return workingSince;
     }
 
     public void setWorkingSince(LocalDate workingSince) {
         this.workingSince = workingSince;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     @Override
@@ -120,8 +120,8 @@ public class EmployeeDTO implements Serializable {
             ", middlename='" + getMiddlename() + "'" +
             ", phone='" + getPhone() + "'" +
             ", email='" + getEmail() + "'" +
-            ", birthdate='" + getBirthdate() + "'" +
             ", workingSince='" + getWorkingSince() + "'" +
+            ", birthDate='" + getBirthDate() + "'" +
             "}";
     }
 }

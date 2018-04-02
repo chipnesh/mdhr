@@ -41,11 +41,11 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="birthdate" type="date">
+            <column name="working_since" type="date">
                 <constraints nullable="true" />
             </column>
 
-            <column name="working_since" type="date">
+            <column name="birth_date" type="date">
                 <constraints nullable="true" />
             </column>
 

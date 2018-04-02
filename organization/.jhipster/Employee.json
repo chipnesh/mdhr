@@ -23,11 +23,11 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "birthdate",
+            "fieldName": "workingSince",
             "fieldType": "LocalDate"
         },
         {
-            "fieldName": "workingSince",
+            "fieldName": "birthDate",
             "fieldType": "LocalDate"
         }
     ],

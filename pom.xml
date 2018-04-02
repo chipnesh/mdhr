@@ -15,7 +15,7 @@
     </properties>
 
     <modules>
-        <module>auth</module>
+        <module>account</module>
         <module>audit</module>
         <module>gateway</module>
         <module>organization</module>

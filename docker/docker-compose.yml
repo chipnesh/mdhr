@@ -1,7 +1,7 @@
 version: '2'
 services:
-    auth-app:
-        image: chipnesh/auth
+    account-app:
+        image: chipnesh/account
         environment:
             - SPRING_PROFILES_ACTIVE=prod,swagger
             - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@registry:8761/eureka

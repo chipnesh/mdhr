@@ -61,11 +61,11 @@ public class EmployeeResourceIntTest {
     private static final String DEFAULT_EMAIL = "AAAAAAAAAA";
     private static final String UPDATED_EMAIL = "BBBBBBBBBB";
 
-    private static final LocalDate DEFAULT_BIRTHDATE = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_BIRTHDATE = LocalDate.now(ZoneId.systemDefault());
-
     private static final LocalDate DEFAULT_WORKING_SINCE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_WORKING_SINCE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final LocalDate DEFAULT_BIRTH_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_BIRTH_DATE = LocalDate.now(ZoneId.systemDefault());
 
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -119,8 +119,8 @@ public class EmployeeResourceIntTest {
             .middlename(DEFAULT_MIDDLENAME)
             .phone(DEFAULT_PHONE)
             .email(DEFAULT_EMAIL)
-            .birthdate(DEFAULT_BIRTHDATE)
-            .workingSince(DEFAULT_WORKING_SINCE);
+            .workingSince(DEFAULT_WORKING_SINCE)
+            .birthDate(DEFAULT_BIRTH_DATE);
         return employee;
     }
 
@@ -151,8 +151,8 @@ public class EmployeeResourceIntTest {
         assertThat(testEmployee.getMiddlename()).isEqualTo(DEFAULT_MIDDLENAME);
         assertThat(testEmployee.getPhone()).isEqualTo(DEFAULT_PHONE);
         assertThat(testEmployee.getEmail()).isEqualTo(DEFAULT_EMAIL);
-        assertThat(testEmployee.getBirthdate()).isEqualTo(DEFAULT_BIRTHDATE);
         assertThat(testEmployee.getWorkingSince()).isEqualTo(DEFAULT_WORKING_SINCE);
+        assertThat(testEmployee.getBirthDate()).isEqualTo(DEFAULT_BIRTH_DATE);
 
         // Validate the Employee in Elasticsearch
         Employee employeeEs = employeeSearchRepository.findOne(testEmployee.getId());
@@ -195,8 +195,8 @@ public class EmployeeResourceIntTest {
             .andExpect(jsonPath("$.[*].middlename").value(hasItem(DEFAULT_MIDDLENAME.toString())))
             .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE.toString())))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
-            .andExpect(jsonPath("$.[*].birthdate").value(hasItem(DEFAULT_BIRTHDATE.toString())))
-            .andExpect(jsonPath("$.[*].workingSince").value(hasItem(DEFAULT_WORKING_SINCE.toString())));
+            .andExpect(jsonPath("$.[*].workingSince").value(hasItem(DEFAULT_WORKING_SINCE.toString())))
+            .andExpect(jsonPath("$.[*].birthDate").value(hasItem(DEFAULT_BIRTH_DATE.toString())));
     }
 
     @Test
@@ -215,8 +215,8 @@ public class EmployeeResourceIntTest {
             .andExpect(jsonPath("$.middlename").value(DEFAULT_MIDDLENAME.toString()))
             .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE.toString()))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()))
-            .andExpect(jsonPath("$.birthdate").value(DEFAULT_BIRTHDATE.toString()))
-            .andExpect(jsonPath("$.workingSince").value(DEFAULT_WORKING_SINCE.toString()));
+            .andExpect(jsonPath("$.workingSince").value(DEFAULT_WORKING_SINCE.toString()))
+            .andExpect(jsonPath("$.birthDate").value(DEFAULT_BIRTH_DATE.toString()));
     }
 
     @Test
@@ -245,8 +245,8 @@ public class EmployeeResourceIntTest {
             .middlename(UPDATED_MIDDLENAME)
             .phone(UPDATED_PHONE)
             .email(UPDATED_EMAIL)
-            .birthdate(UPDATED_BIRTHDATE)
-            .workingSince(UPDATED_WORKING_SINCE);
+            .workingSince(UPDATED_WORKING_SINCE)
+            .birthDate(UPDATED_BIRTH_DATE);
         EmployeeDTO employeeDTO = employeeMapper.toDto(updatedEmployee);
 
         restEmployeeMockMvc.perform(put("/api/employees")
@@ -263,8 +263,8 @@ public class EmployeeResourceIntTest {
         assertThat(testEmployee.getMiddlename()).isEqualTo(UPDATED_MIDDLENAME);
         assertThat(testEmployee.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testEmployee.getEmail()).isEqualTo(UPDATED_EMAIL);
-        assertThat(testEmployee.getBirthdate()).isEqualTo(UPDATED_BIRTHDATE);
         assertThat(testEmployee.getWorkingSince()).isEqualTo(UPDATED_WORKING_SINCE);
+        assertThat(testEmployee.getBirthDate()).isEqualTo(UPDATED_BIRTH_DATE);
 
         // Validate the Employee in Elasticsearch
         Employee employeeEs = employeeSearchRepository.findOne(testEmployee.getId());
@@ -329,8 +329,8 @@ public class EmployeeResourceIntTest {
             .andExpect(jsonPath("$.[*].middlename").value(hasItem(DEFAULT_MIDDLENAME.toString())))
             .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE.toString())))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
-            .andExpect(jsonPath("$.[*].birthdate").value(hasItem(DEFAULT_BIRTHDATE.toString())))
-            .andExpect(jsonPath("$.[*].workingSince").value(hasItem(DEFAULT_WORKING_SINCE.toString())));
+            .andExpect(jsonPath("$.[*].workingSince").value(hasItem(DEFAULT_WORKING_SINCE.toString())))
+            .andExpect(jsonPath("$.[*].birthDate").value(hasItem(DEFAULT_BIRTH_DATE.toString())));
     }
 
     @Test

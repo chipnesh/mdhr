@@ -41,11 +41,11 @@ public class Employee implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "birthdate")
-    private LocalDate birthdate;
-
     @Column(name = "working_since")
     private LocalDate workingSince;
+
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -121,19 +121,6 @@ public class Employee implements Serializable {
         this.email = email;
     }
 
-    public LocalDate getBirthdate() {
-        return birthdate;
-    }
-
-    public Employee birthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
-        return this;
-    }
-
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
-    }
-
     public LocalDate getWorkingSince() {
         return workingSince;
     }
@@ -145,6 +132,19 @@ public class Employee implements Serializable {
 
     public void setWorkingSince(LocalDate workingSince) {
         this.workingSince = workingSince;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public Employee birthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+        return this;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -177,8 +177,8 @@ public class Employee implements Serializable {
             ", middlename='" + getMiddlename() + "'" +
             ", phone='" + getPhone() + "'" +
             ", email='" + getEmail() + "'" +
-            ", birthdate='" + getBirthdate() + "'" +
             ", workingSince='" + getWorkingSince() + "'" +
+            ", birthDate='" + getBirthDate() + "'" +
             "}";
     }
 }

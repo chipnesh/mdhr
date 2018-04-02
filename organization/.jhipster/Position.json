@@ -1,0 +1,21 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180402162720",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "position",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination",
+    "microserviceName": "organization",
+    "searchEngine": "elasticsearch"
+}

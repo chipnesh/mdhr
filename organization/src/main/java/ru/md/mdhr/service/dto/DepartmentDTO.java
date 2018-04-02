@@ -4,6 +4,7 @@ package ru.md.mdhr.service.dto;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A DTO for the Department entity.
@@ -14,6 +15,8 @@ public class DepartmentDTO implements Serializable {
 
     @NotNull
     private String name;
+
+    private Set<PositionDTO> positions;
 
     public Long getId() {
         return id;
@@ -29,6 +32,14 @@ public class DepartmentDTO implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<PositionDTO> getPositions() {
+        return positions;
+    }
+
+    public void setPositions(Set<PositionDTO> positions) {
+        this.positions = positions;
     }
 
     @Override

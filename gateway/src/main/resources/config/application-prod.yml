@@ -117,9 +117,9 @@ jhipster:
         rate-limiting:
             enabled: false
         authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
-            auth: /api # recommended prod configuration
+            account: /api # recommended prod configuration
             audit: /api # recommended prod configuration
-            department: /api # recommended prod configuration
+            organization: /api # recommended prod configuration
     http:
         version: V_1_1 # To use HTTP/2 you will need SSL support (see above the "server.ssl" configuration)
         cache: # Used by the CachingHttpHeadersFilter
@@ -134,8 +134,8 @@ jhipster:
                 url:
     security:
         client-authorization:
-            access-token-uri: http://auth/oauth/token
-            token-service-id: auth
+            access-token-uri: http://account/oauth/token
+            token-service-id: account
             client-id: internal
             client-secret: internal
     mail: # specific JHipster mail property, for standard properties see MailProperties
@@ -166,7 +166,7 @@ jhipster:
 
 oauth2:
     signature-verification:
-        public-key-endpoint-uri: http://auth/oauth/token_key
+        public-key-endpoint-uri: http://account/oauth/token_key
         #ttl for public keys to verify JWT tokens (in ms)
         ttl: 3600000
         #max. rate at which public keys will be fetched (in ms)

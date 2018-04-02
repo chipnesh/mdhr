@@ -124,9 +124,9 @@ jhipster:
             limit: 100000
             duration-in-seconds: 3600
         authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
-            auth: /, /api,/v2/api-docs # recommended dev configuration
+            account: /, /api,/v2/api-docs # recommended dev configuration
             audit: /api,/v2/api-docs # recommended dev configuration
-            department: /api,/v2/api-docs # recommended dev configuration
+            organization: /api,/v2/api-docs # recommended dev configuration
     http:
         version: V_1_1 # To use HTTP/2 you will need SSL support (see above the "server.ssl" configuration)
     cache: # Cache configuration
@@ -147,8 +147,8 @@ jhipster:
         max-age: 1800
     security:
         client-authorization:
-            access-token-uri: http://auth/oauth/token
-            token-service-id: auth
+            access-token-uri: http://account/oauth/token
+            token-service-id: account
             client-id: internal
             client-secret: internal
     mail: # specific JHipster mail property, for standard properties see MailProperties
@@ -179,7 +179,7 @@ jhipster:
 
 oauth2:
     signature-verification:
-        public-key-endpoint-uri: http://auth/oauth/token_key
+        public-key-endpoint-uri: http://account/oauth/token_key
         #ttl for public keys to verify JWT tokens (in ms)
         ttl: 3600000
         #max. rate at which public keys will be fetched (in ms)
