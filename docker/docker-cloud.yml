@@ -11,8 +11,6 @@
       - SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES=zookeeper
       - JHIPSTER_REGISTRY_PASSWORD=admin
       - JAVA_OPTS=-Xmx256m -Xms256m
-    ports:
-      - 8888:8888
 
   audit-app:
     image: chipnesh/audit
