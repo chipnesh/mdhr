@@ -20,9 +20,9 @@ public class PositionDTO implements Serializable {
     @Max(value = 10)
     private Integer grade;
 
-    @NotNull
     private String departmentName;
 
+    @NotNull
     private Long departmentId;
 
     public Long getId() {
