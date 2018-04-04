@@ -15,6 +15,12 @@ public class PositionDTO implements Serializable {
     @NotNull
     private String name;
 
+    @NotNull
+    @Min(value = 1)
+    @Max(value = 10)
+    private Integer grade;
+
+    @NotNull
     private String departmentName;
 
     private Long departmentId;
@@ -51,6 +57,14 @@ public class PositionDTO implements Serializable {
         this.departmentId = departmentId;
     }
 
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -77,6 +91,7 @@ public class PositionDTO implements Serializable {
         return "PositionDTO{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
+            ", grade=" + getGrade() +
             "}";
     }
 }

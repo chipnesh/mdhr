@@ -47,6 +47,9 @@ public class PositionResourceIntTest {
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_NAME = "BBBBBBBBBB";
 
+    private static final Integer DEFAULT_GRADE = 1;
+    private static final Integer UPDATED_GRADE = 2;
+
     @Autowired
     private PositionRepository positionRepository;
 
@@ -94,7 +97,8 @@ public class PositionResourceIntTest {
      */
     public static Position createEntity(EntityManager em) {
         Position position = new Position()
-            .name(DEFAULT_NAME);
+            .name(DEFAULT_NAME)
+            .grade(DEFAULT_GRADE);
         return position;
     }
 
@@ -121,6 +125,7 @@ public class PositionResourceIntTest {
         assertThat(positionList).hasSize(databaseSizeBeforeCreate + 1);
         Position testPosition = positionList.get(positionList.size() - 1);
         assertThat(testPosition.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testPosition.getGrade()).isEqualTo(DEFAULT_GRADE);
 
         // Validate the Position in Elasticsearch
         Position positionEs = positionSearchRepository.findOne(testPosition.getId());
@@ -168,6 +173,25 @@ public class PositionResourceIntTest {
 
     @Test
     @Transactional
+    public void checkGradeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = positionRepository.findAll().size();
+        // set the field null
+        position.setGrade(null);
+
+        // Create the Position, which fails.
+        PositionDTO positionDTO = positionMapper.toDto(position);
+
+        restPositionMockMvc.perform(post("/api/positions")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(positionDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Position> positionList = positionRepository.findAll();
+        assertThat(positionList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllPositions() throws Exception {
         // Initialize the database
         positionRepository.saveAndFlush(position);
@@ -177,7 +201,8 @@ public class PositionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(position.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+            .andExpect(jsonPath("$.[*].grade").value(hasItem(DEFAULT_GRADE)));
     }
 
     @Test
@@ -191,7 +216,8 @@ public class PositionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(position.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.grade").value(DEFAULT_GRADE));
     }
 
     @Test
@@ -215,7 +241,8 @@ public class PositionResourceIntTest {
         // Disconnect from session so that the updates on updatedPosition are not directly saved in db
         em.detach(updatedPosition);
         updatedPosition
-            .name(UPDATED_NAME);
+            .name(UPDATED_NAME)
+            .grade(UPDATED_GRADE);
         PositionDTO positionDTO = positionMapper.toDto(updatedPosition);
 
         restPositionMockMvc.perform(put("/api/positions")
@@ -228,6 +255,7 @@ public class PositionResourceIntTest {
         assertThat(positionList).hasSize(databaseSizeBeforeUpdate);
         Position testPosition = positionList.get(positionList.size() - 1);
         assertThat(testPosition.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testPosition.getGrade()).isEqualTo(UPDATED_GRADE);
 
         // Validate the Position in Elasticsearch
         Position positionEs = positionSearchRepository.findOne(testPosition.getId());
@@ -287,7 +315,8 @@ public class PositionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(position.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+            .andExpect(jsonPath("$.[*].grade").value(hasItem(DEFAULT_GRADE)));
     }
 
     @Test

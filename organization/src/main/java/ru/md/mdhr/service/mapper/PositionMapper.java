@@ -20,10 +20,9 @@ public interface PositionMapper extends EntityMapper<PositionDTO, Position> {
 
         positionDTO.setId( entity.getId() );
         positionDTO.setName( entity.getName() );
-        if (entity.getDepartment() != null) {
-            positionDTO.setDepartmentId(entity.getDepartment().getId());
-            positionDTO.setDepartmentName(entity.getDepartment().getName());
-        }
+        positionDTO.setGrade( entity.getGrade() );
+        positionDTO.setDepartmentId(entity.getDepartment().getId());
+        positionDTO.setDepartmentName(entity.getDepartment().getName());
 
         return positionDTO;
     }

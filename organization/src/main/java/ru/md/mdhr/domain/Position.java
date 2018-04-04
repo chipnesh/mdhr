@@ -27,12 +27,19 @@ public class Position implements Serializable {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn
+    @JoinColumn(name = "department_id")
+    @NotNull
     private Department department;
 
     @NotNull
     @Column(name = "name", nullable = false)
     private String name;
+
+    @NotNull
+    @Min(value = 1)
+    @Max(value = 10)
+    @Column(name = "grade", nullable = false)
+    private Integer grade;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -63,6 +70,19 @@ public class Position implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public Position grade(Integer grade) {
+        this.grade = grade;
+        return this;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -90,6 +110,7 @@ public class Position implements Serializable {
         return "Position{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
+            ", grade=" + getGrade() +
             "}";
     }
 }
