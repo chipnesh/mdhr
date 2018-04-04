@@ -117,9 +117,9 @@ jhipster:
         rate-limiting:
             enabled: false
         authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
-            account: /api # recommended prod configuration
-            audit: /api # recommended prod configuration
-            organization: /api # recommended prod configuration
+            account: /, /api,/v2/api-docs # recommended dev configuration
+            audit: /api,/v2/api-docs # recommended dev configuration
+            organization: /api,/v2/api-docs # recommended dev configuration
     http:
         version: V_1_1 # To use HTTP/2 you will need SSL support (see above the "server.ssl" configuration)
         cache: # Used by the CachingHttpHeadersFilter
