@@ -7,10 +7,10 @@
         Added the constraints for entity Position.
     -->
     <changeSet id="20180402162720-2" author="jhipster">
-        
-        <addForeignKeyConstraint baseColumnNames="department_positions_id"
+
+        <addForeignKeyConstraint baseColumnNames="department_id"
                                  baseTableName="position"
-                                 constraintName="fk_position_department_positions_id"
+                                 constraintName="fk_position_department_id"
                                  referencedColumnNames="id"
                                  referencedTableName="department"/>
 
