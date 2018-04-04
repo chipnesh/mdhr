@@ -707,7 +707,9 @@
                         <artifactId>maven-war-plugin</artifactId>
                         <version>${maven-war-plugin.version}</version>
                         <configuration>
+                            <outputDirectory>target</outputDirectory>
                             <failOnMissingWebXml>false</failOnMissingWebXml>
+                            <warSourceDirectory>./../mdhr-web/build/www</warSourceDirectory>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -821,6 +823,7 @@
                         <artifactId>maven-war-plugin</artifactId>
                         <version>${maven-war-plugin.version}</version>
                         <configuration>
+                            <outputDirectory>target</outputDirectory>
                             <failOnMissingWebXml>false</failOnMissingWebXml>
                             <warSourceDirectory>./../mdhr-web/build/www</warSourceDirectory>
                         </configuration>
